@@ -4,7 +4,7 @@ import MenuList from "../components/MenuList";
 
 export default function RegisterLayout() {
     return <>
-        <MenuList></MenuList>
+        <MenuList />
         <RegisterForm /> 
         <Outlet />
     </>;
