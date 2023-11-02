@@ -1,22 +1,18 @@
-import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import RootLayout from './pages/Root';
-import RegisterLayout from './pages/RegisterPage';
-import LogInLayout from './pages/LogInPage';
-
-const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <RootLayout />,
-        children: [
-            { path: '/LogIn', element: <LogInLayout /> },
-            { path: '/Register', element: <RegisterLayout /> },
-        ],
-    },
-]);
+import React, { useState } from 'react';
+import RegisterPage from './pages/RegisterPage';
+import LoginPage from './pages/LogInPage';
+import HomePage from './pages/Home';
+import { Routes, Route, Router, BrowserRouter } from 'react-router-dom';
 
 export default function App() {
+    const   [isLoggedIn, setIsLoggedIn] = useState(false);
     return (
-        <RouterProvider router={router} />
-    )
-}
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                {!isLoggedIn && <Route path="/login" element={<LoginPage />} />}
+                {!isLoggedIn && <Route path="/register" element={<RegisterPage />} />}
+            </Routes>
+        </BrowserRouter>
+      );
+    }
