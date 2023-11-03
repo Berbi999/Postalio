@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import React from "react";
 export default function MainSection() {
   const posts = [
     {
@@ -9,7 +11,7 @@ export default function MainSection() {
     {
       Id: 2,
       description: "wysuszona",
-      user: { Id: 2, name: "chujxd" },
+      user: { Id: 2, name: "ttt" },
       creationDate: new Date(),
     },
   ];
@@ -19,11 +21,21 @@ export default function MainSection() {
   // }
 
   const listPost = posts.map((post) => (
-    <div>
-      <p>{post.creationDate.toDateString()}</p>
-      <p>{post.user.name}</p>
-      <p>{post.description}</p>
+    <div className="drop-shadow-md p-4 m-4">
+      <p className="font-medium">{post.creationDate.toDateString()}</p>
+      <p className="font-bold">
+        <Link to="">
+          <a className="hover:drop-shadow-md hover:border-2 hover:border-neutral-700 hover:border-opacity-10">
+            {post.user.name}
+          </a>
+        </Link>
+        <a className="font-normal"> {post.description}</a>
+      </p>
     </div>
   ));
-  return <div className="flex space-x-4 bg-red">{listPost}</div>;
+  return (
+    <div className="border-2 border-opacity-10 border-slate-800 border-spacing-2 m-12 p-2 flex flex-col space-y-4 drop-shadow-md">
+      {listPost}
+    </div>
+  );
 }

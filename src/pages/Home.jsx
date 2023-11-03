@@ -1,12 +1,14 @@
-import MenuList from '../components/MenuList';
-import MainSection from './MainSection';
+import MenuList from "../components/MenuList";
+import NavBar from "../components/NavBar";
+import MainSection from "./MainSection";
 
-function HomePage(){
-    return(
-        <div>
-            <MenuList></MenuList>
-            <MainSection></MainSection>
-        </div>
-    );
+function HomePage() {
+  return (
+    <div>
+      <NavBar></NavBar>
+      <MenuList></MenuList>
+      <MainSection></MainSection>
+    </div>
+  );
 }
 export default HomePage;
