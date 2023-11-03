@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 * {
-  background-color: #bac4c8;
+  background-color: #808080;
   color: #010b13;
+}
+.error-container {
+  background-color: #ff6b6b;
+  color: #fff;
+  padding: 10px;
+  border: 1px solid #e74c3c;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-weight: bold;
 }

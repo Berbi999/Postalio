@@ -21,7 +21,7 @@ export default function MainSection() {
   // }
 
   const listPost = posts.map((post) => (
-    <div className="drop-shadow-md p-4 m-4">
+    <div className="drop-shadow-md p-4 m-4 rounded-3xl">
       <p className="font-medium">{post.creationDate.toDateString()}</p>
       <p className="font-bold">
         <Link to="">
@@ -34,7 +34,7 @@ export default function MainSection() {
     </div>
   ));
   return (
-    <div className="border-2 border-opacity-10 border-slate-800 border-spacing-2 m-12 p-2 flex flex-col space-y-4 drop-shadow-md">
+    <div className="border-2 border-opacity-10 border-slate-800 border-spacing-2 m-12 p-2 flex flex-col space-y-4 drop-shadow-md bg-gray-800/60  rounded-3xl">
       {listPost}
     </div>
   );

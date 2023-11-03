@@ -28,10 +28,10 @@ const LogInForm = () => {
   };
 
   return (
-    <div>
-      <h2 className="p-3">LogIn</h2>
+    <div className=" bg-blue-300/70">
+      <h2 className="p-3  bg-blue-300/70">LogIn</h2>
       <input
-        className="p-1 m-3 border-2 border-opacity-30 border-zinc-800"
+        className="p-1 m-3 border-2 border-opacity-30 border-zinc-800 bg-gray-600 text-slate-50	"
         size="40"
         type="email"
         placeholder="Email"
@@ -39,7 +39,7 @@ const LogInForm = () => {
         onChange={(e) => setEmail(e.target.value)}
       />
       <input
-        className="p-1 m-3 border-2 border-opacity-30 border-zinc-800"
+        className="p-1 m-3 border-2 border-opacity-30 border-zinc-800 bg-gray-600 text-slate-50	"
         size="40"
         type="password"
         placeholder="Password"
@@ -47,7 +47,7 @@ const LogInForm = () => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <button
-        className="p-2 border-2 border-opacity-40 hover:bg-sky-700 rounded-lg border-zinc-800"
+        className="p-2 border-2 border-opacity-40 hover:bg-sky-700 rounded-lg border-zinc-800 bg-gray-600 color text-slate-50	"
         onClick={handleLogin}
       >
         LogIn
