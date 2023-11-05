@@ -38,9 +38,9 @@ const PostData = () => {
   const [Posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const supabaseUrl = "https://tbxxyivkeefkzzwvsqkx.supabase.co";
+    const supabaseUrl = "https://tzsmatbvsorrepmzfmby.supabase.co";
     const supabaseKey =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRieHh5aXZrZWVma3p6d3ZzcWt4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkwMzYyMzcsImV4cCI6MjAxNDYxMjIzN30.BJT-pJjZrjKzowzsIFSOMTF2VhI7YLj7nsMRxV1W1G8";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6c21hdGJ2c29ycmVwbXpmbWJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyMjAzNTUsImV4cCI6MjAxNDc5NjM1NX0.r4hx0wQ95SwsdUGRPxihP_Wrjj9VLVthjXFqDxiyQo8";
     const supabase = createClient(supabaseUrl, supabaseKey);
 
     const fetchPosts = async () => {
@@ -62,7 +62,7 @@ const PostData = () => {
       <ul className="divide-y-2 divide-black/20  space-y-10">
         {Posts.map((Posts) => (
           <li key={Posts.id}>
-            <p className="font-medium">{Posts.date}</p>
+            <p className="font-medium">{new Date(Posts.date).toDateString()}</p>
             <a className="font-bold hover:drop-shadow-md hover:border-2 hover:border-neutral-700 hover:border-opacity-10 w-auto">
               <Link to={`/${Posts.nickname}`}>{Posts.nickname}</Link>
             </a>
