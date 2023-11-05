@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { useNavigate } from "react-router-dom";
 import ErrorWindow from "../../../components/ErrorWindow";
@@ -29,7 +29,24 @@ const LogInForm = () => {
       setErrorMessage("Error occuered. Try again.");
     }
   };
-
+  // const [user, setUser] = useState(null);
+  // useEffect(() => {
+  //   const session = supabase.auth.session();
+  //   setUser(session?.user);
+  //   const { data: authListener } = supabase.auth.onAuthStateChange(
+  //     (event, session) => {
+  //       switch (event) {
+  //         case "SIGNED_IN":
+  //           setUser(session?.user);
+  //           break;
+  //         case "SIGNED_OUT":
+  //           setUser(null);
+  //           break;
+  //         default:
+  //       }
+  //     }
+  //   );
+  // });
   return (
     <div className="bg-blue-300/70">
       <h2 className="p-3 bg-blue-300/70">LogIn</h2>
