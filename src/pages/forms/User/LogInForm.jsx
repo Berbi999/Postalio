@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { createClient } from "@supabase/supabase-js";
 import { useNavigate } from "react-router-dom";
 import ErrorWindow from "../../../components/ErrorWindow";
-
+import supabase from "../../../utilities/client";
 const LogInForm = () => {
-  const supabaseUrl = "https://tzsmatbvsorrepmzfmby.supabase.co";
-  const supabaseKey =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6c21hdGJ2c29ycmVwbXpmbWJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyMjAzNTUsImV4cCI6MjAxNDc5NjM1NX0.r4hx0wQ95SwsdUGRPxihP_Wrjj9VLVthjXFqDxiyQo8";
-  const supabase = createClient(supabaseUrl, supabaseKey);
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,24 +24,6 @@ const LogInForm = () => {
       setErrorMessage("Error occuered. Try again.");
     }
   };
-  // const [user, setUser] = useState(null);
-  // useEffect(() => {
-  //   const session = supabase.auth.session();
-  //   setUser(session?.user);
-  //   const { data: authListener } = supabase.auth.onAuthStateChange(
-  //     (event, session) => {
-  //       switch (event) {
-  //         case "SIGNED_IN":
-  //           setUser(session?.user);
-  //           break;
-  //         case "SIGNED_OUT":
-  //           setUser(null);
-  //           break;
-  //         default:
-  //       }
-  //     }
-  //   );
-  // });
   return (
     <div className="bg-blue-300/70">
       <h2 className="p-3 bg-blue-300/70">LogIn</h2>
@@ -76,7 +53,6 @@ const LogInForm = () => {
         LogIn
       </button>
       {errorMessage && <ErrorWindow>{errorMessage}</ErrorWindow>}{" "}
-      {/* Wyświetl komunikat o błędzie, jeśli istnieje */}
     </div>
   );
 };

@@ -62,8 +62,8 @@ const PostData = () => {
       <ul className="divide-y-2 divide-black/20  space-y-10">
         {Posts.map((Posts) => (
           <li key={Posts.id}>
-            <p className="font-medium">{new Date(Posts.date).toDateString()}</p>
-            <a className="font-bold hover:drop-shadow-md hover:border-2 hover:border-neutral-700 hover:border-opacity-10 w-auto">
+            <p className=" font-bold">{new Date(Posts.date).toDateString()}</p>
+            <a className="font-extrabold hover:drop-shadow-md hover:border-2 hover:border-neutral-700 hover:border-opacity-10 w-auto">
               <Link to={`/${Posts.nickname}`}>{Posts.nickname}</Link>
             </a>
             <a className="font-normal"> {Posts.description}</a>
