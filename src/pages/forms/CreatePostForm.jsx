@@ -1,12 +1,10 @@
-import React, { useState } from "react";
 import supabase from "../../utilities/client";
-import PostData from "../../features/PostData";
+import React, { useState, useEffect } from "react";
 function CreatePost() {
   const [description, setDescription] = useState("");
 
   const handleCreatePost = async () => {
     try {
-      // Dodaj post do tabeli Posts w bazie danych Supabase
       const { data, error } = await supabase.from("Posts").upsert([
         {
           description,
@@ -17,7 +15,6 @@ function CreatePost() {
         console.error("Błąd podczas tworzenia postu:", error);
       } else {
         console.log("Pomyślnie utworzono post:", data);
-        PostData();
       }
     } catch (error) {
       console.error("Wystąpił błąd:", error);
