@@ -19,7 +19,6 @@ const RegisterForm = () => {
       if (error) {
         setErrorMessage("Incorrect registration details. Try again.");
       } else {
-        // Pomyślnie zarejestrowano użytkownika, teraz przesyłamy dane do tabeli
         const { data, insertError } = await supabase.from("Users").insert([
           {
             email: email,
@@ -72,7 +71,6 @@ const RegisterForm = () => {
         Register
       </button>
       {errorMessage && <ErrorWindow>{errorMessage}</ErrorWindow>}{" "}
-      {/* Wyświetl komunikat o błędzie, jeśli istnieje */}
     </div>
   );
 };

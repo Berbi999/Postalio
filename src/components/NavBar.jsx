@@ -10,9 +10,11 @@ export default function NavBar() {
         .from("Posts")
         .select("*")
         .textSearch("description", searchQuery);
+      // .textSearch("nickname", searchQuery)
+      // .textSearch("date", searchQuery);
 
       if (error) {
-        console.error("Błąd podczas filtrowania postów: ", error);
+        console.error("Error filtering posts: ", error);
       } else {
         setFilteredPosts(data);
       }
@@ -26,12 +28,12 @@ export default function NavBar() {
     //       .textSearch("nickname", searchQuery);
 
     //     if (error) {
-    //       console.error("Błąd podczas filtrowania postów: ", error);
+    //       console.error("Error filtering posts: ", error);
     //     } else {
     //       setFilteredPosts(data);
     //     }
     //   } catch (error) {
-    //     console.error("Wystąpił błąd: ", error);
+    //     console.error("Error occured: ", error);
     //   }
   };
 

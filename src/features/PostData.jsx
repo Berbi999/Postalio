@@ -31,18 +31,15 @@
 //   return <div className=" rounded-3xl">{listPost}</div>;
 // }
 // export default PostData;
+
 import React, { useState, useEffect } from "react";
-import { createClient } from "@supabase/supabase-js";
+import supabase from "../utilities/client";
 import { Link } from "react-router-dom";
+import UserProfile from "../pages/ProfilePages";
 const PostData = () => {
   const [Posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const supabaseUrl = "https://tzsmatbvsorrepmzfmby.supabase.co";
-    const supabaseKey =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6c21hdGJ2c29ycmVwbXpmbWJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyMjAzNTUsImV4cCI6MjAxNDc5NjM1NX0.r4hx0wQ95SwsdUGRPxihP_Wrjj9VLVthjXFqDxiyQo8";
-    const supabase = createClient(supabaseUrl, supabaseKey);
-
     const fetchPosts = async () => {
       try {
         const { data, error } = await supabase.from("Posts").select("*");
@@ -63,9 +60,12 @@ const PostData = () => {
         {Posts.map((Posts) => (
           <li key={Posts.id}>
             <p className=" font-bold">{new Date(Posts.date).toDateString()}</p>
-            <a className="font-extrabold hover:drop-shadow-md hover:border-2 hover:border-neutral-700 hover:border-opacity-10 w-auto">
+            <button
+              // onClick={UserProfile()}
+              className="font-extrabold hover:drop-shadow-md hover:border-2 hover:border-neutral-700 hover:border-opacity-10 w-auto"
+            >
               <Link to={`/${Posts.nickname}`}>{Posts.nickname}</Link>
-            </a>
+            </button>
             <a className="font-normal"> {Posts.description}</a>
           </li>
         ))}
